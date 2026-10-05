@@ -1,8 +1,10 @@
 {
-  "id": "g00",
+  "id": "g06",
   "title": "Generic request summary",
   "categories": [
-    "general"
+    "availability",
+    "performance",
+    "release"
   ],
   "keywords": {
     "general": []
