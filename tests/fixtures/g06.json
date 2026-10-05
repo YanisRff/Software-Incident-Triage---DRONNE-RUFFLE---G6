@@ -1,0 +1,38 @@
+[
+  {
+    "subject": "Availability request 1",
+    "text": "I need help with unavailable. Please route this request to the correct team.",
+    "expected_category": "availability",
+    "expected_priority": "medium"
+  },
+  {
+    "subject": "Availability request 2",
+    "text": "I need help with outage. Please route this request to the correct team. This is urgent.",
+    "expected_category": "availability",
+    "expected_priority": "high"
+  },
+  {
+    "subject": "Performance request 1",
+    "text": "I need help with slow. Please route this request to the correct team.",
+    "expected_category": "performance",
+    "expected_priority": "medium"
+  },
+  {
+    "subject": "Performance request 2",
+    "text": "I need help with latency. Please route this request to the correct team. This is urgent.",
+    "expected_category": "performance",
+    "expected_priority": "high"
+  },
+  {
+    "subject": "Release request 1",
+    "text": "I need help with release. Please route this request to the correct team.",
+    "expected_category": "release",
+    "expected_priority": "medium"
+  },
+  {
+    "subject": "Release request 2",
+    "text": "I need help with deployment. Please route this request to the correct team. This is urgent.",
+    "expected_category": "release",
+    "expected_priority": "high"
+  }
+]
