@@ -1,14 +1,16 @@
 {
   "id": "g06",
-  "title": "Generic request summary",
+  "title": "Software Incident Triage",
   "categories": [
     "availability",
     "performance",
     "release"
   ],
   "keywords": {
-    "general": []
+    "availability": ["unavailable", "outage", "down", "unreachable", "503"],
+    "performance": ["slow", "latency", "timeout", "degraded"],
+    "release": ["release", "deployment", "deploy", "version", "rollback"]
   },
-  "high_priority_words": [],
-  "instructions": "Summarize for a human reviewer."
+  "high_priority_words": ["urgent", "critical", "all users"],
+  "instructions": "You triage software incident reports for an engineering team. Propose routing only. Never run commands, never perform or claim a rollback, never invent facts. If the report is ambiguous, say a reviewer must decide."
 }
