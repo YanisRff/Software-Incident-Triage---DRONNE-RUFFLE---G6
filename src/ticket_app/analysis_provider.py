@@ -1,10 +1,10 @@
+import json
 from typing import Protocol
 
-from ticket_app.analysis_models import Analysis, Request
-
-import json
 import httpx
 from pydantic import ValidationError
+
+from ticket_app.analysis_models import Analysis, Request
 
 
 class ProviderUnavailable(RuntimeError):

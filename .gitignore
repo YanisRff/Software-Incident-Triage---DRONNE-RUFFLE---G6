@@ -228,3 +228,5 @@ infra/.terraform/
 *.tfplan
 infra/terraform.tfvars
 secrets/
+docker/llm/llmster.tar.gz
+docker/llm/llmster.sha512

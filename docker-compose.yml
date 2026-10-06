@@ -1,0 +1,47 @@
+# Local stack: LM Studio (llmster) + API + UI on one private network.
+# Run: docker compose up -d --build   then open http://localhost:8506
+name: g06
+
+services:
+  llm:
+    build: docker/llm
+    image: lmstudio-g06:manual
+    environment:
+      LLM_MODEL: qwen2.5-coder-1.5b-instruct
+    volumes:
+      # Reuse the model already downloaded by LM Studio on the host (read-only).
+      - ${LMS_MODELS_DIR:-~/.lmstudio/models}:/home/lms/.lmstudio/models:ro
+    networks: [g06-net]
+
+  api:
+    build: .
+    image: copilot-g06:manual
+    environment:
+      LLM_PROVIDER: local
+      LLM_BASE_URL: http://llm:1234/v1
+      LLM_MODEL: qwen2.5-coder-1.5b-instruct
+      LLM_TIMEOUT: "60"
+      SCENARIO_ID: g06
+      DB_PATH: /data/analyses.db
+    volumes:
+      - g06-data:/data
+    ports: ["8006:8000"]
+    depends_on:
+      llm: { condition: service_healthy }
+    networks: [g06-net]
+
+  ui:
+    image: copilot-g06:manual
+    command: ["python", "-m", "streamlit", "run", "ui/app.py",
+              "--server.address", "0.0.0.0", "--server.port", "8501"]
+    environment:
+      API_URL: http://api:8000
+    ports: ["8506:8501"]
+    depends_on: [api]
+    networks: [g06-net]
+
+networks:
+  g06-net:
+
+volumes:
+  g06-data:
