@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
+
 from fastapi.testclient import TestClient
+
 from ticket_app.api import create_app
 
 
