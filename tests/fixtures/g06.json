@@ -34,5 +34,11 @@
     "text": "I need help with deployment. Please route this request to the correct team. This is urgent.",
     "expected_category": "release",
     "expected_priority": "high"
+  },
+  {
+    "subject": "Original request",
+    "text": "Checkout returns 500 after the 14:00 deploy",
+    "expected_category": "release",
+    "expected_priority": "medium"
   }
 ]

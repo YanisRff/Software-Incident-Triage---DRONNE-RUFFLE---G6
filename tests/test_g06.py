@@ -136,13 +136,13 @@ def test_adapter_payload():
         return model_reply(json.dumps(GOOD))
 
     make_provider(handler).analyze(
-        Request(subject="API responses slow", text="p95 latency doubled since 9am"), POLICY
+        Request(subject="API responses slow", text="latency doubled since 9am"), POLICY
     )
 
     body = captured["body"]
     assert body["model"] == "test-model"
     assert "temperature" in body  # tighten to `== 0` if that's the value you send
-    assert any("p95 latency doubled since 9am" in m["content"] for m in body["messages"])
+    assert any("latency doubled since 9am" in m["content"] for m in body["messages"])
 
 
 def test_adapter_parsing():
